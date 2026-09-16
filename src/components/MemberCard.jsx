@@ -2,7 +2,7 @@ import { useState } from "react";
 import { checkAvailability } from "../api/client";
 import StatusIndicator from "./StatusIndicator";
 
-// Turns "Thisuka Kodithuwakku" into "TK" for the avatar circle.
+// Turns "Thisuka Kodithuwakku" into "TK" for the avatar circle
 function initials(name) {
   return name
     .split(" ")
@@ -13,7 +13,6 @@ function initials(name) {
 }
 
 export default function MemberCard({ member, date }) {
-  // "idle" | "checking" | "available" | "busy" | "error"
   const [status, setStatus] = useState("idle");
   const [reason, setReason] = useState(null);
 
@@ -31,28 +30,25 @@ export default function MemberCard({ member, date }) {
 
   return (
     <div
-      className="flex flex-col rounded-lg border border-line bg-surface p-4
-                 transition-shadow hover:shadow-sm sm:p-5"
+      className="flex flex-col p-4 transition-shadow border rounded-lg border-busy bg-surface hover:shadow-sm sm:p-5"
     >
       <div className="flex items-center gap-3">
         <div
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                     bg-brand/10 font-display font-600 text-brand"
+          className="flex items-center justify-center w-12 h-12 text-xl text-blue-700 rounded-full lg:text-xl md:text-2xl shrink-0 bg-stone-200 font-display"
         >
           {initials(member.name)}
         </div>
         <div className="min-w-0">
-          <p className="truncate font-medium text-ink">{member.name}</p>
-          <p className="truncate text-sm text-muted">{member.role}</p>
+          <p className="text-lg font-bold truncate lg:text-lg md:text-xl text-ink">{member.name}</p>
+          <p className="truncate text-md lg:text-md md:text-lg text-muted">{member.role}</p>
         </div>
       </div>
 
       <button
         onClick={handleCheck}
         disabled={status === "checking"}
-        className="mt-4 rounded-md border border-brand px-3 py-1.5 text-sm font-medium text-brand
-                   transition-colors hover:bg-brand hover:text-white
-                   disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-4 rounded-md border border-blue-700 px-3 py-1.5 text-sm lg:text-sm md:text-lg font-semibold text-blue-700
+                  hover:bg-blue-500 hover:text-white"
       >
         Check availability
       </button>

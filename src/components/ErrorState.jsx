@@ -1,14 +1,13 @@
-// Shown when the /api/members request itself fails.
-// Explains what happened and gives a way to retry.
+// Shown when the api request fails
 export default function ErrorState({ message, onRetry }) {
   return (
-    <div className="rounded-lg border border-busy/20 bg-busy/5 p-6 text-center sm:p-8">
-      <p className="font-medium text-busy">Couldn&apos;t load the member list.</p>
-      <p className="mt-1 text-sm text-muted">{message}</p>
+    <div className="p-6 text-center border rounded-lg border-busy/20 bg-busy/5 sm:p-8">
+      <p className="text-lg font-medium md:text-2xl lg:text-md text-busy">Couldn&apos;t load the member list.</p>
+      <p className="mt-1 text-lg lg:text-md md:text-xl text-muted">{message}</p>
       <button
         onClick={onRetry}
-        className="mt-4 rounded-md border border-busy px-4 py-1.5 text-sm font-medium text-busy
-                   hover:bg-busy hover:text-white"
+        className="mt-4 rounded-md border border-busy px-4 py-1.5 text-sm lg:text-sm md:text-xl font-medium text-busy
+                  hover:bg-busy hover:text-white"
       >
         Retry
       </button>

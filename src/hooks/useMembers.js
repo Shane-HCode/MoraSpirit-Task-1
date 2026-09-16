@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { getMembers } from "../api/client";
 
 // Loads the member directory and exposes loading/error state
-// so the UI can render the right thing at every stage.
 export function useMembers() {
   const [members, setMembers] = useState([]);
-  const [status, setStatus] = useState("loading"); // loading | ready | error
+  const [status, setStatus] = useState("loading"); 
   const [error, setError] = useState(null);
 
   useEffect(() => {

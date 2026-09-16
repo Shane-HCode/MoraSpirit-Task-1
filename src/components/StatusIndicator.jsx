@@ -1,9 +1,7 @@
-// Small colored dot + text. Color communicates status at a glance;
-// text repeats it in words so the meaning isn't color-only (accessibility).
 export default function StatusIndicator({ status, reason }) {
   if (status === "checking") {
     return (
-      <p className="mt-3 flex items-center gap-2 text-sm text-muted">
+      <p className="flex items-center gap-2 mt-3 text-sm text-muted">
         <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-muted" />
         Checking availability…
       </p>
@@ -12,7 +10,7 @@ export default function StatusIndicator({ status, reason }) {
 
   if (status === "error") {
     return (
-      <p className="mt-3 flex items-center gap-2 text-sm text-busy">
+      <p className="flex items-center gap-2 mt-3 text-sm text-busy">
         <span className="h-2.5 w-2.5 rounded-full bg-busy" />
         Couldn&apos;t check this member. Try again.
       </p>
@@ -21,7 +19,7 @@ export default function StatusIndicator({ status, reason }) {
 
   if (status === "available") {
     return (
-      <p className="mt-3 flex items-center gap-2 text-sm font-medium text-available">
+      <p className="flex items-center gap-2 mt-3 text-sm font-medium text-available">
         <span className="h-2.5 w-2.5 rounded-full bg-available" />
         Available on this date
       </p>
@@ -40,5 +38,5 @@ export default function StatusIndicator({ status, reason }) {
     );
   }
 
-  return null; // idle: nothing checked yet
+  return null;
 }
